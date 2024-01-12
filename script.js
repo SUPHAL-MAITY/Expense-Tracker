@@ -3,7 +3,7 @@ const expenseList=document.getElementById("expense-list")
 const totalAmountElement=document.getElementById("total-amount")
 
 
-let expenses= []
+let expenses=  JSON.parse(localStorage.getItem("expenses")) || []
 
 
 
@@ -31,7 +31,9 @@ const renderExpenses=()=>{
 
   totalAmountElement.textContent = 
     totalAmount.toFixed(2); 
-  
+
+
+localStorage.setItem("expenses",JSON.stringify(expenses))
   
   
 }
